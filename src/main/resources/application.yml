@@ -1,0 +1,21 @@
+server:
+  port: 8899
+
+spring:
+  profiles:
+    active: local
+
+logging:
+  level:
+    com.jeffrey.mapper: debug
+
+# JWT
+config:
+  jwt:
+    token-header: token
+    token-path-matcher: /**
+  thread-pool:
+    core-pool-size: 10
+    max-pool-size: 50
+    queue-capacity: 100
+    keep-alive-seconds: 100

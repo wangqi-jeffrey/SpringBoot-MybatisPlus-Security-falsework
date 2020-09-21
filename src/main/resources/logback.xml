@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <!-- 定义日志输出格式 -->
+    <!--<property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class:%line - %msg%n"/>-->
+    <property name="LOG_PATTERN"
+              value='{"date":"%date{yyyy-MM-dd HH:mm:ss.SSS}","level":"%-5level","thread":"%thread","trace_id":"%X{TRACE_ID}","msg":"%msg"}%n'/>
+    
+     <property name="ACCESS_PATTERN"
+		value="%date{yyyy-MM-dd HH:mm:ss}|2|%level|%msg%n"/>
+		
+    <property name="LOG_FILE_PATH" value="/data/logs/test/logs/app-logs/"/>
+
+	<property name="ACCESS_FILE_PATH"
+		value="/data/logs/test/logs/app-access-logs/" />
+
+    <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %yellow(at %class.%method) \\(%file:%line\\) %n%clr(>>>>>>) %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${LOG_FILE_PATH}/app.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_PATH}/app.%d{yyyyMMdd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <append>true</append>
+    </appender>
+    
+    <appender name="ACCESS_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${ACCESS_FILE_PATH}/access.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ACCESS_FILE_PATH}/access.%d{yyyyMMdd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ACCESS_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+		</encoder>
+		<append>true</append>
+	</appender>
+
+    <!-- 在生产环境，必须将下面的两个配置改为INFO -->
+    <logger name="com.jeffrey" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+    
+    <root level="INFO">
+        <!-- 启用的appender列表 -->
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

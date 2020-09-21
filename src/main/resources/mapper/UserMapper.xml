@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeffrey.mapper.user.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jeffrey.entity.User">
+        <result column="f_id" property="id"/>
+        <result column="f_create_time" property="createTime"/>
+        <result column="f_update_time" property="updateTime"/>
+        <result column="f_is_delete" property="isDelete"/>
+        <result column="f_user_code" property="userCode"/>
+        <result column="f_phone" property="phone"/>
+        <result column="f_appid" property="appid"/>
+        <result column="f_open_id" property="openId"/>
+        <result column="f_union_id" property="unionId"/>
+        <result column="f_nick_name" property="nickName"/>
+        <result column="f_avatar_url" property="avatarUrl"/>
+        <result column="f_gender" property="gender"/>
+        <result column="f_country" property="country"/>
+        <result column="f_province" property="province"/>
+        <result column="f_city" property="city"/>
+        <result column="f_language" property="language"/>
+        <result column="f_last_login_time" property="lastLoginTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        f_id,
+        f_create_time,
+        f_update_time,
+        f_is_delete,
+        f_user_code, f_phone, f_appid, f_open_id, f_union_id, f_nick_name, f_avatar_url, f_gender, f_country, f_province, f_city, f_language, f_last_login_time
+    </sql>
+
+</mapper>

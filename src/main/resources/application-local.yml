@@ -1,0 +1,108 @@
+spring:
+  datasource:
+    url: jdbc:mysql://123.56.135.63/db_test?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=GMT%2B8
+    username: test
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # Hikari will use the above plus the following to setup connection pooling
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  redis:
+    host: 123.56.135.63
+    port: 13000
+    password: PtestHxcpxw@hfq120977axwerdaaHH
+    database: 1
+  data:
+    mongodb:
+      uri: mongodb://szzlb:xxxxxxx@101.200.52.134:27026/szzlb
+
+xxl:
+  job:
+    admin:
+      addresses: 127.0.0.1:12313/xxl/
+    executor:
+      appname: test-executor
+      ip:
+      port: 12555
+      logpath: /data/logs/test/logs/executor-logs/
+      logretentiondays: -1
+    accessToken:
+
+# JWT
+config:
+  jwt:
+    # app token expired(48 hours)
+    token-expired-time: 172800
+    # mini-app token expired(30 days)
+    token-expired-time-mini-app: 2592000
+    alias-key: zhifang.dev.hzfapi.com
+    password: zhifangguanjia_%^#*@
+    keystore-path: keystore/jwt-dev.keystore
+  sms:
+    domain: http://xxxxxxx
+    sign-id: 10000
+    verify-template-id: G1v2xUxNRhxVonCroO92kZ4UW4nlvWzD
+    verify-code-effective-time: 5
+  cdoc:
+    service:
+      url: http://xxxxxxx/converter
+  jx-saas:
+    domain: http://jxsaas.staging2.hzfapi.com
+    secret-key: PMOgfVJ8STWOh7sa
+
+# ali
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: sdsddsds
+    access-key-secret: sdsdsdds
+    bucket-name: test
+    folder: test
+    max-file-size: 15728640
+    custom-host: https://ccxxccxcxxc/
+    region: cn-beijing
+    roleArn: acs:ram::1607118219735772:role/hhz-dev-role
+    policy: "{\"Version\": \"1\", \"Statement\": [{\"Action\": [\"oss:*\"], \"Resource\": [\"acs:oss:*:*:*\"], \"Effect\": \"Allow\"}]}"
+    version: 2015-04-01
+    duration-seconds: 1800
+    host: https://xcxcxccx.oss-cn-beijing.aliyuncs.com/
+    is-private: false
+  oss-ccb:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: xcxccx
+    access-key-secret: xcxccxxc
+    bucket-name: xccx
+    folder: test
+    max-file-size: 15728640
+    custom-host: https://xcxcxcxcxc/
+    region: cn-beijing
+    roleArn:
+    policy:
+    version: 2015-04-01
+    duration-seconds: 1800
+    host: https://xcxcxcxccx.oss-cn-beijing.aliyuncs.com/
+    is-private: true
+
+wx:
+  miniapp:
+    configs:
+      - appid: wxff4b9aedf5272dfb
+        secret: 34343443
+        token: test
+        aesKey: WiC9FPMyGxdHc56T9hs7KVeHzs1vltqHJ2E02HdnQ5g
+        msgDataFormat: JSON
+    bill-page: pages/login/login?type=2
+  mp:
+    appId: wxe14b6c818f4f8bce
+    secret: 3434343434
+    token: test
+    aesKey: WiC9FPMyGxdHc56T9hs7KVeHzs1vltqHJ2E02HdnQ5g
+    collection-msg-tpl-id: bflEm6XtMqs6p33leFHo_BA5u-JztpWmokZBzlhLGmA

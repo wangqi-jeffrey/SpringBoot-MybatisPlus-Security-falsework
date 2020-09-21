@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeffrey.mapper.user.OperateLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jeffrey.entity.OperateLog">
+        <result column="f_id" property="id"/>
+        <result column="f_create_time" property="createTime"/>
+        <result column="f_update_time" property="updateTime"/>
+        <result column="f_is_delete" property="isDelete"/>
+        <result column="f_platform" property="platform"/>
+        <result column="f_version" property="version"/>
+        <result column="f_client_ip" property="clientIp"/>
+        <result column="f_module_code" property="moduleCode"/>
+        <result column="f_operate_type_code" property="operateTypeCode"/>
+        <result column="f_operator_code" property="operatorCode"/>
+        <result column="f_business_key" property="businessKey"/>
+        <result column="f_house_code" property="houseCode"/>
+        <result column="f_room_code" property="roomCode"/>
+        <result column="f_content" property="content"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        f_id,
+        f_create_time,
+        f_update_time,
+        f_is_delete,
+        f_platform, f_version, f_client_ip, f_module_code, f_operate_type_code, f_operator_code, f_business_key, f_house_code, f_room_code, f_content
+    </sql>
+
+</mapper>
