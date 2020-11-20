@@ -49,12 +49,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * Description: 程序入口
- *
- * @author 滕国栋
- * @date 2020/08/17 下午 21:49
- */
 @SpringBootApplication
 @EnableTransactionManagement(order = 2)
 public class Application {
