@@ -16,9 +16,9 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
   redis:
-    host: 123.56.135.63
-    port: 13000
-    password: PtestHxcpxw@hfq120977axwerdaaHH
+    host: 127.0.0.1
+    port: 123
+    password: xxxx
     database: 1
   data:
     mongodb:
