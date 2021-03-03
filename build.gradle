@@ -64,7 +64,6 @@ dependencies {
     implementation 'com.aliyun:aliyun-java-sdk-sts:3.0.0'
     implementation 'com.aliyun:aliyun-java-sdk-core:4.5.9'
     implementation 'com.github.binarywang:weixin-java-miniapp:3.9.0'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
